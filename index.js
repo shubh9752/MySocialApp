@@ -3,11 +3,13 @@ const app=express();
 const routes=require("./routers/index")
 const port=3000;
 const expressLayouts=require("express-ejs-layouts");
+const db=require("./config/mongoose");
 
 app.use(express.static("./assets"));
 
 //express layouts
 app.use(expressLayouts);
+//set static files for layouts and pages
 app.set("layout extractStyles",true);
 app.set("layout extractScripts",true);
 
