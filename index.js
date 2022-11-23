@@ -5,6 +5,9 @@ const port=3000;
 
 // express routes
 app.use('/', routes);
+//setting view engine as ejs 
+app.set("view engine","ejs");
+app.set("views","./views");
 
 
 app.listen(port, (err) =>{

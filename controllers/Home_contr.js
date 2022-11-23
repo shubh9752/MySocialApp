@@ -1,3 +1,6 @@
 module.exports.home=(req,res)=>{
-    return res.end("<h1>this is coming from home controller</h1>");
+    return res.render("home",{
+        title:"Socially",
+        description:"this is home page of socaially"
+    });
 }
