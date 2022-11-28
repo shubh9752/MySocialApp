@@ -12,6 +12,17 @@ const passportLocal=require("./config/passport-local-strategy");
 //install connect-mongo@3
 const MongoStore=require("connect-mongo")(session);
 
+const sassMiddleware = require('node-sass-middleware');
+
+//establishishing sassmiddleware
+app.use(sassMiddleware({
+    src:"./assets/scss",
+    dest:"./assets/css",
+    debug:true,
+    outputStyle:"extended",
+    prefix:"/css",
+}));
+
 //to convert form data in json
 app.use(express.urlencoded());
 // using cookie parsder
