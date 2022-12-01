@@ -41,7 +41,7 @@ module.exports.userCreated = (req, res) => {
       return;
     }
     if (!user) {
-      User.create(req.body, function (err, user) {
+      User.create(req.body, (err, user)=> {
         if (err) {
           console.log("error in creating user while signing up");
           return;
@@ -55,7 +55,7 @@ module.exports.userCreated = (req, res) => {
   });
 };
 //getting the signed in and creating session for user //createsession
-module.exports.userSignedIn = function (req, res) {
+module.exports.userSignedIn =  (req, res)=> {
   return res.redirect("/");
 };
 
