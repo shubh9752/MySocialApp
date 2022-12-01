@@ -4,6 +4,23 @@
         <h3>POSTS</h3>
         <form action="/post/create" id="new-post" method="post">
             <textarea name="content" id="" cols="28" rows="5"></textarea>
-            <input type="submit" value="Post">
+            <input type="submit" value="Post" placeholder="type post...">
         </form>
+        <div id="posts-list">
+            <ul>
+                <% for(post of post){ %>
+                    <li>
+                       <p>
+                        <%= post.content %> 
+                        <br>
+                        <small>
+                            <%= post.user.name  %> 
+                        </small>
+                       </p>
+                    </li>
+                
+                <% } %>  
+            </ul>
+
+        </div>
     </div>
