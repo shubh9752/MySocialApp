@@ -1,2 +1,9 @@
     
     <h1><%=description%></h1>
+    <div id="feeds">
+        <h3>POSTS</h3>
+        <form action="/post/create" id="new-post" method="post">
+            <textarea name="content" id="" cols="28" rows="5"></textarea>
+            <input type="submit" value="Post">
+        </form>
+    </div>

@@ -1,7 +1,7 @@
-//const express=require("express");
-//const router=express.Router();
-//const postController=require("../controllers/Post_contr");
+const express=require("express");
+const router=express.Router();
+const postController=require("../controllers/Post_contr");
 
-//router.get("/",postController.post)
+router.post("/create",postController.create);
 
-//module.exports=router;
+module.exports=router;
