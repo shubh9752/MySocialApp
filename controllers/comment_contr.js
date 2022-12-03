@@ -34,3 +34,21 @@ module.exports.create=(req,res)=>{
     });
 
 };
+
+module.exports.delete=(req,res)=>{
+    Comment.findById(req.params.id,(err,comment)=>{
+        console.log("line 40")
+        console.log(comment.user)
+        if(comment.user == req.user.id){
+        ///    console.log(user +" this is user error")
+            let postId=comment.post;
+            comment.remove();
+            Post.findByIdAndUpdate(postId,{$pull:{comment:req.params.id}},(err,post)=>{
+                return res.redirect("back");
+            });
+        }else{
+            return res.redirect("back")
+        }
+
+    });
+};
