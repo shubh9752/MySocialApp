@@ -10,47 +10,19 @@
   <div id="posts-list">
     <ul>
       <% for(post of post){ %>
-      <li>
-        <p>
-          <% if(locals.user && locals.user.id == post.user.id){%>
-
-          <small>
-            <a href="/post/delete/<%= post.id %>">Delete</a>
-          </small>
-          <%} %> <%= post.content %>
-          <br />
-          <small> <%= post.user.name %> </small>
-        </p>
-        <div class="post-comments">
-          <% if(locals.user){%>
-          <form action="/comments/create" method="post">
-            <input type="text" name="content" placeholder="comments" />
-            <input type="hidden" name="post" value="<%= post._id %>" />
-            <input type="submit" value="add comment" />
-          </form>
-          <% } %>
-
-          <div class="comment-list">
-            <ul id="post-comments-<%= post._id %>">
-              <% for(comment of post.comment){%>
-              <p>
-                <% if(locals.user && locals.user.id == comment.user.id){%>
-
-                <small>
-                  <a href="/comments/delete/<%=comment.id%>">Delete</a>
-                </small>
-                <%} %>
-                <%= comment.content %>
-                <br />
-                <small> <%= comment.user.name %> </small>
-              </p>
-              <% } %>
-            </ul>
-          </div>
-        </div>
-      </li>
+      
+        <%-include("_post");  %> 
 
       <% } %>
     </ul>
   </div>
+</div>
+
+<div id="user-friends">
+  <h3>Freinds</h3>
+  <% for(u of allUsers){%>
+   <p>
+    <a href="/user/profile/<%= u.id %>"><%= u.name %> </a>
+   </p> 
+  <%} %> 
 </div>

@@ -1,5 +1,6 @@
 const Post = require("../models/post");
 //const { post } = require("../routers");
+const User=require("../models/user")
 
 module.exports.home = (req, res) => {
   // console.log(req.cookies)
@@ -12,10 +13,15 @@ module.exports.home = (req, res) => {
       }
     })
     .exec((err, post) => {
-      return res.render("home", {
-        title: "Socially",
-        description: "this is home page of socaially",
-        post: post,
-      });
+      User.find({},(err,users)=>{
+        return res.render("home", {
+          title: "Socially",
+          description: "this is home page of socaially",
+          post: post,
+          allUsers:users
+        });
+
+      })
+     
     });
 };

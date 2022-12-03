@@ -5,7 +5,7 @@ const checkAuthentication=require("../config/passport-local-strategy")
 
 const userController = require("../controllers/User_contr");
 
-router.get("/profile",checkAuthentication,userController.profile);
+router.get("/profile/:id",checkAuthentication,userController.profile);
 router.get("/sign-up",userController.signUp);
 router.get("/sign-in",userController.signIn);
 
