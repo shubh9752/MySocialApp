@@ -6,5 +6,6 @@
  const postController=require("../controllers/Post_contr");
 
  router.post("/create",checkAuthentication,postController.create);
+ router.get("/delete/:id",checkAuthentication,postController.delete)
 
  module.exports=router;
