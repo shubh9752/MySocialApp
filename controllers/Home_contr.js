@@ -5,6 +5,12 @@ module.exports.home = (req, res) => {
   // console.log(req.cookies)
   Post.find({})
     .populate("user")
+    .populate({
+      path:"comment",
+      populate:{
+        path:"user"
+      }
+    })
     .exec((err, post) => {
       return res.render("home", {
         title: "Socially",
