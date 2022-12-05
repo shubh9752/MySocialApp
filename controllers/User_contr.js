@@ -70,6 +70,8 @@ module.exports.userCreated = (req, res) => {
 };
 //getting the signed in and creating session for user //createsession
 module.exports.userSignedIn =  (req, res)=> {
+  
+  req.flash("success","bhadayi ho login ho gaye");
   return res.redirect("/");
 };
 
@@ -77,5 +79,6 @@ module.exports.signOut=(req,res)=>{
   //new syntax in place of req.logout
   req.logout(req.user, err => {
     if(err) return next(err);
+    req.flash("success","you are  log out")
     return res.redirect("/");
 })};
