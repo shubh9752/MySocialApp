@@ -1,0 +1,12 @@
+#home-container{
+    display:flex;
+    #feeds{
+        width: 80%;
+        padding: 10px;
+    }
+    #friends{
+        width: 20%;
+        padding: 10px;
+        border-left: 1px solid rgb(3, 3, 125);
+    }
+}
